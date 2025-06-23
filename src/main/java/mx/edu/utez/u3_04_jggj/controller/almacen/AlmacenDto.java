@@ -10,9 +10,7 @@ import java.util.Date;
  */
 @Value
 public class AlmacenDto implements Serializable {
-    String claveAlmacen;
-    Date fechaDeRegostro;
     double precioDeVenta;
     char tamano;
-    Integer cedeId;
+    String claveCede;
 }

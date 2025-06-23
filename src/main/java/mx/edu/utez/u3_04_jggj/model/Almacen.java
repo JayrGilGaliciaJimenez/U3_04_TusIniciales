@@ -18,20 +18,17 @@ public class Almacen {
     @Column(name = "id", nullable = false)
     private Integer id;
     private String claveAlmacen;
-    private Date fechaDeRegostro;
+    private Date fechaDeRegistro;
     private double precioDeVenta;
     private char tamano;
+    @Column(name = "isRented", columnDefinition = "BOOLEAN DEFAULT false")
+    private boolean isRented = false;
+    @Column(name = "isSold", columnDefinition = "BOOLEAN DEFAULT false")
+    private boolean isSold = false;
 
     @ManyToOne
     @JoinColumn(name = "cede_id", nullable = false)
     @JsonIgnore
     private Cede cede;
-
-    public void generateClaveAlmacen() {
-        if (this.cede != null && this.cede.getClaveCede() != null && this.id != null) {
-            this.claveAlmacen = String.format("(%s-A%d)", this.cede.getClaveCede(), this.id);
-        }
-    }
-
 
 }

@@ -21,7 +21,7 @@ public class CedeService {
     public ResponseEntity<ApiResponse<List<Cede>>> findAll() {
         List<Cede> cedes = cedeRepository.findAll();
         return new ResponseEntity<>(
-                new ApiResponse<>(cedes, "Cedes retrieved successfully", HttpStatus.OK),
+                new ApiResponse<>(cedes, "Cedes obtenidas", HttpStatus.OK),
                 HttpStatus.OK
         );
     }
@@ -30,7 +30,7 @@ public class CedeService {
         Optional<Cede> cedeOpt = cedeRepository.findById(id);
         if (cedeOpt.isPresent()) {
             return new ResponseEntity<>(
-                    new ApiResponse<>(cedeOpt.get(), "Cede found", HttpStatus.OK),
+                    new ApiResponse<>(cedeOpt.get(), "Cede encontrada", HttpStatus.OK),
                     HttpStatus.OK
             );
         } else {
@@ -70,7 +70,7 @@ public class CedeService {
         Cede updated = cedeRepository.save(saved);
 
         return new ResponseEntity<>(
-                new ApiResponse<>(updated, "Cede saved successfully", HttpStatus.CREATED),
+                new ApiResponse<>(updated, "Cede guardada exitosamente", HttpStatus.CREATED),
                 HttpStatus.CREATED
         );
     }
@@ -102,7 +102,7 @@ public class CedeService {
             cede.setEstado(dto.getEstado().trim());
             Cede updated = cedeRepository.save(cede);
             return new ResponseEntity<>(
-                    new ApiResponse<>(updated, "Cede updated successfully", HttpStatus.OK),
+                    new ApiResponse<>(updated, "Cede actualizada exitosamente", HttpStatus.OK),
                     HttpStatus.OK
             );
         } else {
@@ -117,7 +117,7 @@ public class CedeService {
         if (cedeRepository.existsById(id)) {
             cedeRepository.deleteById(id);
             return new ResponseEntity<>(
-                    new ApiResponse<>(null, "Cede deleted successfully", HttpStatus.OK),
+                    new ApiResponse<>(null, "Cede eliminada exitosamente", HttpStatus.OK),
                     HttpStatus.OK
             );
         } else {

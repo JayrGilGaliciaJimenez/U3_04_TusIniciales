@@ -44,4 +44,15 @@ public class AlmacenController {
         return almacenService.deleteById(id);
     }
 
+    @PutMapping("toRent/{id}")
+    public ResponseEntity<ApiResponse<Almacen>> toRent(@PathVariable Integer id) {
+        return almacenService.toRent(id);
+    }
+
+    @PutMapping("toSell/{id}")
+    public ResponseEntity<ApiResponse<Almacen>> toSell(@PathVariable Integer id) {
+        return almacenService.toSell(id);
+    }
+
+
 }
